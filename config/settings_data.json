@@ -1,6 +1,15 @@
 {
   "current": {
     "checkout_logo_position": "center",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "main_menu": "main-menu",
+          "top_menu": "secondary-menu"
+        }
+      }
+    },
     "content_for_index": [
 
     ]

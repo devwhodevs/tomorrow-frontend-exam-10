@@ -1,0 +1,28 @@
+<div class="w-full overflow-hidden pb-8">
+  <div class="transition px-[40px]" :class="{ 'md:scale-110 scale-125': exploded }">
+    {% render 'image', image: section.settings.image, mobile_image: section.settings.mobile_image %}
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

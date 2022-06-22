@@ -4,7 +4,7 @@
   "description": "Blank Shopify Theme represents a completely blank Shopify Theme Architecture for custom builds. All template files created with [Online Store 2.0 features](https://www.shopify.com/partners/blog/shopify-online-store) built-in and acts as a reference for building Shopify themes. Contains meta-tags snippet for og:* meta tags.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "auth": "shopify login --store=tomorrow-frontend-exam-10",
     "tailwind:watch": "npx tailwindcss -i tailwind.css -o ./assets/bundle.min.css --minify --watch",
     "tailwind:build": "npx tailwindcss -i tailwind.css -o ./assets/bundle.min.css --minify",
     "shopify:serve": "shopify theme serve --theme-editor-sync",
