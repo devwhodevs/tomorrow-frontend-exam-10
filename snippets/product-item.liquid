@@ -1,0 +1,30 @@
+{% unless product %}
+    <p class="text-red-600">ERROR: No product chosen</p>
+{% else %}
+    {% liquid
+        unless product_title != blank
+            assign product_title = product.title
+        endunless
+    %}
+
+    <div class="mx-[4.5px] md:mx-[1px] {% if forloop.index == 3 %}active center left-1{% endif %}">
+        <a href="{{ product.url }}">
+            {% render 'image', image: product.featured_image %}
+        </a>
+        <div @click="() => {
+            axios.post('/cart/add.js', {
+                items: [{ quantity: 1, id: '{{ product.first_available_variant.id }}' }]
+            })
+            .then(r => {console.log(r)})
+            .catch(e => console.log(e))}"
+             class="caption group hover:bg-purple hover:text-white cursor-pointer transition flex flex-col md:flex-row md:items-center justify-between p-[20px] bg-white">
+            <p class="h4 text-xl italic capitalize group-hover:hidden">
+                {{ product_title }}
+            </p>
+            <p class="h4 text-xl italic capitalize group-hover:block hidden">
+                Add to cart
+            </p>
+            <p class="font-platform text-sm leading-none">{{ product.price | money }}</p>
+        </div>
+    </div>
+{% endunless %}

@@ -1,0 +1,13 @@
+{% if block %}
+    <div class="{{ block.settings.aspect_ratio }} overflow-hidden relative">
+        {% render 'image', image: block.settings.image, mobile_image: block.settings.mobile_image, class: 'absolute w-full h-full object-cover' %}
+        <div class="caption text-center absolute bottom-0 w-full px-[40px] mb-[41px]">
+            <p class="h2 text-white mb-[21px]">{{ block.settings.title }}</p>
+            {% if block.settings.url != blank and block.settings.text != blank %}
+                <a class="font-platform text-white leading-none md:text-base text-xs tracking-[.25em] underlined uppercase" href="{{ block.settings.url }}">{{ block.settings.text }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% else %}
+    <p class="text-red-600">Error: No block defined</p>
+{% endif %}

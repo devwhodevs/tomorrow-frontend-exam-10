@@ -1,0 +1,52 @@
+{% unless collection %}
+    <p class="text-red-600">ERROR: No collection chosen</p>
+{% else %}
+    {% liquid
+        unless collection_title != blank
+            assign collection_title = collection.title
+        endunless
+        unless collection_description != blank
+            assign collection_description = collection.description
+        endunless
+        unless collection_url != blank
+            assign collection_url = collection.url
+        endunless
+
+        unless collection_background != blank
+            capture bg_color
+                assign modulo = forloop.index0 | modulo: 4
+                case modulo
+                    when 0
+                        echo 'bg-green'
+                    when 1
+                        echo 'bg-blue'
+                    when 2
+                        echo 'bg-yellow'
+                    when 3
+                        echo 'bg-purple'
+                    else
+                        echo 'bg-blue'
+                endcase
+            endcapture
+        endunless
+    %}
+
+    <div
+        {% if collection_background == blank %}
+            class="p-2.5 pb-[58px] mx-1 {{ bg_color }}"
+        {% else %}
+            style="background: {{ collection_background }}"
+            class="p-2.5 pb-[58px] mx-1"
+        {% endif %}>
+        <a href="{{ collection.url }}">
+            {% render 'image', image: collection.image %}
+        </a>
+        <div class="text-center mt-[30px] px-6">
+            <p class="h3 mb-2.5">{{ collection_title }}</p>
+            <div class="mb-4 font-gt-super-text">{{ collection_description }}</div>
+            {% if collection_link_text != blank and collection_url != blank %}
+                <a class="font-platform tracking-[.25em] text-sm underlined uppercase" href="{{ collection_url }}">{{ collection_link_text }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% endunless %}

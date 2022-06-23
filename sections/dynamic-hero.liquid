@@ -1,8 +1,9 @@
 <div class="w-full overflow-hidden pb-8">
-  <div class="transition px-[40px]" :class="{ 'md:scale-110 scale-125': exploded }">
-    {% render 'image', image: section.settings.image, mobile_image: section.settings.mobile_image %}
+  <div class="transition px-[20px] md:px-[40px]" :class="{ 'md:scale-110 scale-125': exploded }">
+    {% render 'image', image: section.settings.image, mobile_image: section.settings.mobile_image, eager: true %}
   </div>
 </div>
+
 {% schema %}
 {
   "name": "Hero",

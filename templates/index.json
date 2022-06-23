@@ -1,10 +1,125 @@
 {
   "sections": {
     "main": {
-      "type": "dynamic-hero"
+      "type": "dynamic-hero",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/desktop.webp",
+        "mobile_image": "shopify:\/\/shop_images\/mob.webp"
+      }
+    },
+    "16559062304f6c552a": {
+      "type": "section-featured-collections",
+      "blocks": {
+        "7eef5f6e-1c5f-4add-a2da-129d198dd0af": {
+          "type": "collection",
+          "settings": {
+            "collection": "make-a-scene",
+            "collection_background": "linear-gradient(182deg, rgba(0, 150, 110, 1) 100%, rgba(0, 150, 110, 1) 100%)",
+            "collection_title": "{{ block.settings.collection.title }}",
+            "collection_description": "<p>Everything you need for a great party, from decor to drinks and games.<\/p>",
+            "collection_url": "shopify:\/\/collections\/make-a-scene",
+            "collection_link_text": "find your scene"
+          }
+        },
+        "24e4568c-25f8-45e9-9914-29d2c70ad30c": {
+          "type": "collection",
+          "settings": {
+            "collection": "make-it-extra",
+            "collection_background": "linear-gradient(180deg, rgba(133, 171, 189, 1) 100%, rgba(255, 255, 255, 1) 100%)",
+            "collection_title": "{{ block.settings.collection.title }}",
+            "collection_description": "<p>Once you’ve chosen a scene, you can dial it up with fun a la carte add-ons.<\/p>",
+            "collection_url": "shopify:\/\/collections\/make-it-extra",
+            "collection_link_text": "shop party supplies"
+          }
+        },
+        "720df915-0371-47f9-b54d-9a4fef3dfecd": {
+          "type": "collection",
+          "settings": {
+            "collection": "make-it-joyful",
+            "collection_background": "linear-gradient(180deg, rgba(227, 255, 33, 1), rgba(227, 255, 33, 1) 100%)",
+            "collection_title": "{{ block.settings.collection.title }}",
+            "collection_description": "<p>Everything you need for a great party, from decor to drinks and games.<\/p>",
+            "collection_url": "shopify:\/\/collections\/make-it-joyful",
+            "collection_link_text": "shop florals"
+          }
+        },
+        "230da345-f620-463f-8c31-3cc7a9c8fa7b": {
+          "type": "collection",
+          "settings": {
+            "collection": "make-it-happen",
+            "collection_background": "linear-gradient(180deg, rgba(191, 145, 196, 1), rgba(191, 145, 196, 1) 100%)",
+            "collection_title": "{{ block.settings.collection.title }}",
+            "collection_description": "<p>Everything you need for a great party, from decor to drinks and games.<\/p>",
+            "collection_url": "shopify:\/\/collections\/make-it-happen",
+            "collection_link_text": "browse vendors"
+          }
+        }
+      },
+      "block_order": [
+        "7eef5f6e-1c5f-4add-a2da-129d198dd0af",
+        "24e4568c-25f8-45e9-9914-29d2c70ad30c",
+        "720df915-0371-47f9-b54d-9a4fef3dfecd",
+        "230da345-f620-463f-8c31-3cc7a9c8fa7b"
+      ],
+      "settings": {
+        "collection_list": [
+          "make-a-scene",
+          "make-it-extra",
+          "make-it-happen",
+          "make-it-joyful"
+        ],
+        "title": "HAVING FUN 101"
+      }
+    },
+    "16559239636a5aefbb": {
+      "type": "section-2up-content-module",
+      "blocks": {
+        "98dfe895-a533-497c-a9c1-90729b64cd16": {
+          "type": "content",
+          "settings": {
+            "aspect_ratio": "aspect-[1.685\/2]",
+            "image": "shopify:\/\/shop_images\/left.webp",
+            "title": "Housewarming Gifts for the Host",
+            "url": "shopify:\/\/collections\/make-it-joyful",
+            "text": "discover them all"
+          }
+        },
+        "b239002c-186d-4473-a68e-736d98210d4a": {
+          "type": "content",
+          "settings": {
+            "aspect_ratio": "aspect-[1.685\/2]",
+            "image": "shopify:\/\/shop_images\/right.webp",
+            "title": "The Limited-Edition Holiday Scene",
+            "url": "shopify:\/\/collections\/make-it-extra",
+            "text": "shop the scene"
+          }
+        }
+      },
+      "block_order": [
+        "98dfe895-a533-497c-a9c1-90729b64cd16",
+        "b239002c-186d-4473-a68e-736d98210d4a"
+      ],
+      "settings": {
+      }
+    },
+    "165599017574a9b49a": {
+      "type": "section-products-carousel",
+      "settings": {
+        "collection_list": [
+          "make-a-scene",
+          "make-it-extra",
+          "featured"
+        ],
+        "title": "PARTY A LA CARTE",
+        "collection_url": "shopify:\/\/collections\/make-a-scene",
+        "collection_link_text": "Shop All"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "16559062304f6c552a",
+    "16559239636a5aefbb",
+    "165599017574a9b49a"
   ]
 }

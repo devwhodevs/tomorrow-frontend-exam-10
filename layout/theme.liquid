@@ -30,6 +30,7 @@
 
     <link rel="preload" href="{{ 'glider.1.7.4.min.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'glider-component.js' | asset_url }}" as="script">
+    <link rel="preload" href="{{ 'axios.0.27.2.min.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'main.js' | asset_url }}" as="script">
     <link rel="preload" href="{{ 'alpine.3.10.2.min.js' | asset_url }}" as="script">
 
@@ -40,13 +41,14 @@
     {{ content_for_header }}
   </head>
 
-  <body x-data="{ exploded: true, mobileMenuOpen: false }" @scroll.window="exploded = (window.pageYOffset > 50) ? false : true" class="transition-colors h-[200vh]" :class="{ 'bg-blue': exploded, 'bg-cream': !exploded }">
+  <body x-data="{ exploded: (window.pageYOffset > 50) ? false : true, mobileMenuOpen: false }" @scroll.window="exploded = (window.pageYOffset > 50) ? false : true" class="transition-colors h-[200vh]" :class="{ 'bg-blue': exploded, 'bg-cream': !exploded }">
     {% section 'header' %}
     <main role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
     <script defer src="{{ 'glider.1.7.4.min.js' | asset_url }}"></script>
     <script defer src="{{ 'glider-component.js' | asset_url }}"></script>
+    <script defer src="{{ 'axios.0.27.2.min.js' | asset_url }}"></script>
     <script defer src="{{ 'main.js' | asset_url }}"></script>
     <script defer src="{{ 'alpine.3.10.2.min.js' | asset_url }}"></script>
   </body>

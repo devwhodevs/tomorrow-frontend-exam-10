@@ -11,6 +11,7 @@ module.exports = {
         yellow: '#E3FF21',
         blue: '#85ABBD',
         green: '#00966E',
+        purple: '#BF91C4',
         cream: '#F4EDE5'
       },
       screens: {

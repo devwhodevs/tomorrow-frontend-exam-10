@@ -3,10 +3,58 @@
 @tailwind utilities;
 
 @layer base {
-    h1 {
+    h1, .h1 {
         @apply font-gt-super-display;
-        font-size: 5rem;  /* 80px */
+        font-size: 2.5rem;  /* 40px */
         line-height: 1;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+    }
+    h2, .h2 {
+        @apply font-gt-super-display;
+        font-feature-settings: 'pnum' on, 'lnum' on;
+        font-size: 2rem; /* 64px */
+        line-height: 1;
+    }
+    h3, .h3 {
+        @apply font-gt-super-display;
+        font-size: 2rem;
+        line-height: 1;
+    }
+    h4, .h4 {
+        @apply font-gt-super-display;
+        font-weight: 400;
+        font-size: 1.5rem;
+        line-height: 1.33;
+    }
+    a {
+        @apply hover:opacity-75 transition-opacity;
+    }
+
+    @screen md {
+        h1, .h1 {
+            font-size: 5rem;  /* 80px */
+            line-height: 1;
+        }
+        h2, .h2 {
+            @apply font-gt-super-display;
+            font-feature-settings: 'pnum' on, 'lnum' on;
+            font-size: 4rem; /* 64px */
+            line-height: 1;
+        }
+    }
+}
+@layer components {
+    .underlined {
+        position: relative;
+    }
+    .underlined::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        display: block;
+        width: 100%;
+        border-bottom: 2px solid;
     }
 }
 

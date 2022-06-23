@@ -1,0 +1,105 @@
+{% if section.settings.collection_list != blank or section.blocks.size > 0 %}
+    <div class="w-full max-w-[1358px] py-[20px] lg:px-0 px-2.5 pb-[85px] mx-auto">
+        {% if section.settings.title %}
+            <p class="text-center h1 py-[30px] md:py-[60px]">{{ section.settings.title }}</p>
+        {% endif %}
+        <div class="glider-contain md:px-[50px] !mb-10">
+            <div class="glider" x-ref="glider" @glider-loaded="screen.width < 768 ? Glider($refs.glider).scrollTo(230) : false" x-data="glider({
+                  slidesToShow: 1.3,
+                  slidesToScroll: 1,
+                  rewind: true,
+                  arrows: {
+                    prev: '.glider-prev-button-alt',
+                    next: '.glider-next-button-alt'
+                  },
+                  responsive: [
+                    {
+                      breakpoint: 768,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                      }
+                    }
+                  ]
+               })">
+                {% liquid
+                    if section.blocks.size > 0
+                        for block in section.blocks
+                            assign product = all_products[block.settings.product]
+                            assign product_title = block.settings.product_title
+
+                            render 'product-item', product: product, product_title: product_title
+                        endfor
+                    else
+                        for collection in section.settings.collection_list
+                          render 'product-item' for collection.products as product
+                        endfor
+                    endif
+                %}
+            </div>
+            <span class="lg:hidden block absolute top-0 left-0 h-full w-[50px]" style="background: linear-gradient(90deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
+            <span class="lg:hidden block absolute top-0 right-0 h-full w-[50px]" style="background: linear-gradient(270deg, #F4EDE5 0%, rgba(244, 237, 229, 0) 100%);"></span>
+            <button aria-label="Prev" type="button" class="hidden md:block glider-prev-button-alt absolute top-1/2 left-0 -translate-y-1/2">{% render 'icon-arrow-left-alt.svg' %}</button>
+            <button aria-label="Next" type="button" class="hidden md:block glider-next-button-alt absolute top-1/2 right-0 -translate-y-1/2">{% render 'icon-arrow-right-alt.svg' %}</button>
+        </div>
+        {% if section.settings.collection_url != blank and section.settings.collection_link_text != blank %}
+          <div class="w-full text-center">
+            <a href="{{ section.settings.collection_url }}" class="underlined font-platform text-base font-medium uppercase tracking-[.25em]">{{ section.settings.collection_link_text }}</a>
+          </div>
+        {% endif %}
+    </div>
+{% endif %}
+{% schema %}
+{
+  "name": "Products carousel",
+  "settings": [
+    {
+      "type": "collection_list",
+      "id": "collection_list",
+      "label": "Collections"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "PARTY A LA CARTE"
+    },
+    {
+      "type": "url",
+      "id": "collection_url",
+      "label": "Link"
+    },
+    {
+      "type": "text",
+      "id": "collection_link_text",
+      "label": "Link text",
+      "default": "Shop All"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Title",
+          "default": "Default Title to overwrite"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Products carousel",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}
