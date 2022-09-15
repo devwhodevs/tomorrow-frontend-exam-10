@@ -3,7 +3,8 @@
     "main": {
       "type": "dynamic-hero",
       "settings": {
-        "image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg"
+        "image": "shopify:\/\/shop_images\/person-fishing-on-the-beach-is-silhouetted-at-sunset.jpg",
+        "mobile_image": "shopify:\/\/shop_images\/the-man-in-the-hat.jpg"
       }
     },
     "16559062304f6c552a": {
